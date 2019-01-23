@@ -14,6 +14,14 @@
 * 1.把`api/lowlevel/lib/`下的`.a` 和 `api/lowlevel/inc`下的代码添加项目中
 * 2.项目配置把静态库`.a`所在的路径添加到`build settings`下的`Library Search Paths`中，头文件的路径添加到`build settings`下的`Header Search Paths`中
 
+
+#### 在lua中使用
+打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini and .py>导出c++ to lua
+
+###### 注意
+cocos tolua 需要使用cocos版本对应的android-ndk，对应关系查看cocos官网
+
+
 ### 简单使用
 
 ~~~ 伪代码
@@ -35,11 +43,18 @@ channel->setVolume(volume);
 channel->setMode(FMOD_DEFAULT);
 ~~~
 
+###示例工程
+在 `frameworks/fmod`中的FmodSound类，简单实现了背景音乐和播放音效的基础方法
+
+~~~
+    void playSound(std::string filename, bool loop, float volume);
+	void setSoundVolume(float volume);
+	void stopSoundByName(std::string filename);
+	void stopAllSound();
+	void playMusic(std::string filename, bool isloop);
+	void stopMusic();
+	void preloadSound(std::string filename);
+~~~
 
 
-#### 在lua中使用
-打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini and .py>导出c++ to lua
-
-###### 注意
-cocos tolua 需要使用cocos版本对应的android-ndk，对应关系查看cocos官网
 
