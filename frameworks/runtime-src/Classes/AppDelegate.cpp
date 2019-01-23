@@ -26,7 +26,7 @@
 #include "scripting/lua-bindings/manual/CCLuaEngine.h"
 #include "cocos2d.h"
 #include "scripting/lua-bindings/manual/lua_module_register.h"
-
+#include "../../fmod/FmodSound.hpp"
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
 
@@ -110,7 +110,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     {
         return false;
     }
-
+    
+    FmodSound::getInstance()->playSound("res/sound/dabusi_special1.mp3", false, 1.0);
     return true;
 }
 
