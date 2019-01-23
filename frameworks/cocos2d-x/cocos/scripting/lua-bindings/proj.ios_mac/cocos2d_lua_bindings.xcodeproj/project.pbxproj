@@ -446,6 +446,12 @@
 		F4FE0D5819ECD00100B8B12B /* luasocket_scripts.c in Sources */ = {isa = PBXBuildFile; fileRef = F4FE0D5519ECD00100B8B12B /* luasocket_scripts.c */; };
 		F4FE0D5919ECD00100B8B12B /* luasocket_scripts.h in Headers */ = {isa = PBXBuildFile; fileRef = F4FE0D5619ECD00100B8B12B /* luasocket_scripts.h */; };
 		F4FE0D5A19ECD00100B8B12B /* luasocket_scripts.h in Headers */ = {isa = PBXBuildFile; fileRef = F4FE0D5619ECD00100B8B12B /* luasocket_scripts.h */; };
+		FAE13C5721F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE13C5221F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp */; };
+		FAE13C5821F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE13C5221F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp */; };
+		FAE13C5921F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE13C5221F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp */; };
+		FAE13C5A21F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAE13C5621F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp */; };
+		FAE13C5B21F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAE13C5621F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp */; };
+		FAE13C5C21F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAE13C5621F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -611,6 +617,10 @@
 		ED1AA90A215DF5F3004ABA9F /* lua_downloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_downloader.cpp; sourceTree = "<group>"; };
 		F4FE0D5519ECD00100B8B12B /* luasocket_scripts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = luasocket_scripts.c; sourceTree = "<group>"; };
 		F4FE0D5619ECD00100B8B12B /* luasocket_scripts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luasocket_scripts.h; sourceTree = "<group>"; };
+		FAE13C5221F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_tools_fmodsound_auto.cpp; sourceTree = "<group>"; };
+		FAE13C5421F8585A00CADB96 /* FmodSound.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FmodSound.lua; sourceTree = "<group>"; };
+		FAE13C5521F8585A00CADB96 /* lua_tools_fmodsound_auto_api.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lua_tools_fmodsound_auto_api.lua; sourceTree = "<group>"; };
+		FAE13C5621F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_tools_fmodsound_auto.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -674,6 +684,7 @@
 		1551A334158F2AB200E66CFE = {
 			isa = PBXGroup;
 			children = (
+				FAE13C5121F8585A00CADB96 /* fmod */,
 				C0D9BAFA1974D30000EC35BB /* liblua.a */,
 				1ABCA1E218CD8F230087CE3A /* external */,
 				1AACE74818BC45C200215002 /* auto */,
@@ -1008,6 +1019,26 @@
 			path = audioengine;
 			sourceTree = "<group>";
 		};
+		FAE13C5121F8585A00CADB96 /* fmod */ = {
+			isa = PBXGroup;
+			children = (
+				FAE13C5221F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp */,
+				FAE13C5321F8585A00CADB96 /* api */,
+				FAE13C5621F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp */,
+			);
+			name = fmod;
+			path = ../fmod;
+			sourceTree = "<group>";
+		};
+		FAE13C5321F8585A00CADB96 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				FAE13C5421F8585A00CADB96 /* FmodSound.lua */,
+				FAE13C5521F8585A00CADB96 /* lua_tools_fmodsound_auto_api.lua */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1023,6 +1054,7 @@
 				15AC69E21987712500D17520 /* tolua_event.h in Headers */,
 				15415AD719A71A53004F1E71 /* udp.h in Headers */,
 				15AC69E31987712500D17520 /* tolua++.h in Headers */,
+				FAE13C5A21F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp in Headers */,
 				15415ADB19A71A53004F1E71 /* unix.h in Headers */,
 				155C7DF419A71C3700F08B25 /* lua_cocos2dx_3d_manual.h in Headers */,
 				15415ABB19A71A53004F1E71 /* luasocket.h in Headers */,
@@ -1099,6 +1131,7 @@
 				15EFA64E198B3342000C57D3 /* lua.h in Headers */,
 				15415AD819A71A53004F1E71 /* udp.h in Headers */,
 				15EFA64F198B3342000C57D3 /* luaconf.h in Headers */,
+				FAE13C5B21F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp in Headers */,
 				15415ADC19A71A53004F1E71 /* unix.h in Headers */,
 				155C7DF519A71C3900F08B25 /* lua_cocos2dx_3d_manual.h in Headers */,
 				15415ABC19A71A53004F1E71 /* luasocket.h in Headers */,
@@ -1175,6 +1208,7 @@
 				507B43111C31FA0C0067B53E /* lua.h in Headers */,
 				507B43121C31FA0C0067B53E /* udp.h in Headers */,
 				507B43131C31FA0C0067B53E /* luaconf.h in Headers */,
+				FAE13C5C21F8585A00CADB96 /* lua_tools_fmodsound_auto.hpp in Headers */,
 				507B43141C31FA0C0067B53E /* unix.h in Headers */,
 				507B43151C31FA0C0067B53E /* lua_cocos2dx_3d_manual.h in Headers */,
 				507B43161C31FA0C0067B53E /* luasocket.h in Headers */,
@@ -1395,6 +1429,7 @@
 				15C1C2D01987498B00A46ACC /* lua_cocos2dx_experimental_manual.cpp in Sources */,
 				15C1C2D11987498B00A46ACC /* lua_cocos2dx_manual.cpp in Sources */,
 				15C1C2D21987498B00A46ACC /* lua_cocos2dx_physics_manual.cpp in Sources */,
+				FAE13C5721F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp in Sources */,
 				15C1C2D31987498B00A46ACC /* LuaScriptHandlerMgr.cpp in Sources */,
 				15415AA919A71A53004F1E71 /* buffer.c in Sources */,
 				15C1C2CD1987495500A46ACC /* lua_cocos2dx_auto.cpp in Sources */,
@@ -1413,6 +1448,7 @@
 				15A561ED1B00A3F1005D4720 /* lua_cocos2dx_physics3d_manual.cpp in Sources */,
 				15EFA646198B3311000C57D3 /* tolua_event.c in Sources */,
 				3E2BDB0A19C5E6100055CDCD /* lua_cocos2dx_audioengine_manual.cpp in Sources */,
+				FAE13C5821F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp in Sources */,
 				15415AA619A71A53004F1E71 /* auxiliar.c in Sources */,
 				15B575501A6F4D1500041C20 /* lua-cocos-studio-conversions.cpp in Sources */,
 				15EFA647198B3311000C57D3 /* tolua_is.c in Sources */,
@@ -1497,6 +1533,7 @@
 				507B42BF1C31FA0C0067B53E /* lua_cocos2dx_physics3d_manual.cpp in Sources */,
 				507B42C01C31FA0C0067B53E /* tolua_event.c in Sources */,
 				507B42C11C31FA0C0067B53E /* lua_cocos2dx_audioengine_manual.cpp in Sources */,
+				FAE13C5921F8585A00CADB96 /* lua_tools_fmodsound_auto.cpp in Sources */,
 				507B42C21C31FA0C0067B53E /* auxiliar.c in Sources */,
 				507B42C31C31FA0C0067B53E /* lua-cocos-studio-conversions.cpp in Sources */,
 				507B42C41C31FA0C0067B53E /* tolua_is.c in Sources */,

@@ -110,8 +110,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     {
         return false;
     }
-    
-    FmodSound::getInstance()->playSound("res/sound/dabusi_special1.mp3", false, 1.0);
     return true;
 }
 

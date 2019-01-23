@@ -36,3 +36,10 @@ channel->setMode(FMOD_DEFAULT);
 ~~~
 
 
+
+#### 在lua中使用
+打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini and .py>导出c++ to lua
+
+###### 注意
+cocos tolua 需要使用cocos版本对应的android-ndk，对应关系查看cocos官网
+

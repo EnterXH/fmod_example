@@ -32,15 +32,15 @@ private:
     static FmodSound * _instance;
     float _music_volume;
     
-	FMOD::System *system;
-    
+    FMOD::System *system;
+
     /* sound */
-	std::map<std::string, FMOD::Sound *> _sounds;
-	std::map<std::string, FMOD::Channel *> _loop_sounds;
-    
+    std::map<std::string, FMOD::Sound *> _sounds;
+    std::map<std::string, FMOD::Channel *> _loop_sounds;
+
     /* background */
-	FMOD::Sound * _music;
-	FMOD::Channel * _music_channel;
+    FMOD::Sound * _music;
+    FMOD::Channel * _music_channel;
 };
 
 #endif /* FmodSound_hpp */
