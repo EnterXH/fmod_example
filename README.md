@@ -14,6 +14,11 @@
 * 1.把`api/lowlevel/lib/`下的`.a` 和 `api/lowlevel/inc`下的代码添加项目中
 * 2.项目配置把静态库`.a`所在的路径添加到`build settings`下的`Library Search Paths`中，头文件的路径添加到`build settings`下的`Header Search Paths`中
 
+### Windows
+* 1.把`api/lowlevel/lib/`下的`.a` 和 `api/lowlevel/inc`下的代码添加项目中
+* 2.右键点击工程，最下边找到`属性`，`属性配置`下找到`C/C++`，然后点击`常规`,在附加包含目录中添加刚才添加的`inc`下的代码的目录。（release和debug）都要加
+* 3.在`C/C++`平级的列表中找到`链接器`，点击`常规`，在右侧`附加库目录`中添加刚才添加的`lib`目录（release和debug）都要加，在`常规`平级列表中找到`输入`，然后在`附加依赖项`中`debug`下添加`fmodL_vc.lib，fmodL64_vc.lib`，`release`下添加`fmod_vc.lib，fmod64_vc.lib`
+
 
 #### 在lua中使用
 打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini and .py>导出c++ to lua
