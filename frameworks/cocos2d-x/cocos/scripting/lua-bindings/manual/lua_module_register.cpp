@@ -37,7 +37,7 @@
 #include "scripting/lua-bindings/manual/navmesh/lua_cocos2dx_navmesh_manual.h"
 
 // custom
-#include "scripting/lua-bindings/fmod/lua_tools_fmodsound_auto.hpp"
+// #include "scripting/lua-bindings/fmod/lua_tools_fmodsound_auto.hpp"
 
 int lua_module_register(lua_State* L)
 {
@@ -57,7 +57,7 @@ int lua_module_register(lua_State* L)
 #if CC_USE_NAVMESH
     register_navmesh_module(L);
 #endif
-    register_all_FmodSound(L);
+    // register_all_FmodSound(L);
     return 1;
 }
 
