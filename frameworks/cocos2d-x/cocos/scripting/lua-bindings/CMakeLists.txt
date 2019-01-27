@@ -118,6 +118,14 @@ set(lua_bindings_auto_files
     auto/lua_cocos2dx_navmesh_auto.cpp
     )
 
+set(lua_bindings_fmod_headers
+    fmod/lua_tools_fmodsound_auto.hpp
+    )
+
+set(lua_bindings_fmod_files
+    fmod/lua_tools_fmodsound_auto.cpp
+    )
+
 if(APPLE)
     # CCLuaObjcBridge.mm needed by ios and mac
     set(lua_bindings_manual_headers
@@ -156,10 +164,12 @@ endif()
 set(lua_bindings_files
     ${lua_bindings_manual_files}
     ${lua_bindings_auto_files}
+    ${lua_bindings_fmod_files}
     )
 set(lua_bindings_headers
     ${lua_bindings_manual_headers}
     ${lua_bindings_auto_headers}
+    ${lua_bindings_fmod_headers}
     )
 
 list(APPEND lua_bindings_files ${lua_bindings_headers})
@@ -176,6 +186,7 @@ target_include_directories(luacocos2d
     PRIVATE manual/platform/android/jni
     INTERFACE ${cocos_root}/cocos/scripting/lua-bindings/auto
     INTERFACE ${cocos_root}/cocos/scripting/lua-bindings/manual
+    INTERFACE ${cocos_root}/cocos/scripting/lua-bindings/fmod
 )
 
 if(WINDOWS)

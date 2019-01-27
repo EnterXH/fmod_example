@@ -8,6 +8,8 @@
 #include "ios/inc/fmod.hpp"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 #include "mac/inc/fmod.hpp"
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "android/inc/fmod.hpp"
 #endif
 class FmodSound : public cocos2d::Ref
 {

@@ -30,6 +30,7 @@ project(${APP_NAME})
 set(RUNTIME_SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/frameworks/runtime-src)
 set(COCOS2DX_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/frameworks/cocos2d-x)
 set(CMAKE_MODULE_PATH ${COCOS2DX_ROOT_PATH}/cmake/Modules/)
+set(FMOD_PATH ${CMAKE_CURRENT_SOURCE_DIR}/frameworks/fmod)
 
 include(CocosBuildSet)
 set(BUILD_LUA_LIBS ON)
@@ -58,8 +59,10 @@ set(GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/AppDelegate.cpp)
 # sources need to compile info, include dirs and source files
 include_directories(
         ${RUNTIME_SRC_ROOT}/Classes
+        ${FMOD_PATH}/fmod
         ${COCOS2DX_ROOT_PATH}/cocos/scripting/lua-bindings/auto
         ${COCOS2DX_ROOT_PATH}/cocos/scripting/lua-bindings/manual
+        ${COCOS2DX_ROOT_PATH}/cocos/scripting/lua-bindings/fmod
         ${COCOS2DX_ROOT_PATH}/external/lua/luajit/include
         ${COCOS2DX_ROOT_PATH}/external/lua/tolua
         ${COCOS2DX_ROOT_PATH}/tools/simulator/libsimulator/lib
@@ -67,7 +70,15 @@ include_directories(
 if(ANDROID)
     # change APP_NAME to the share library name for Android, it's value depend on AndroidManifest.xml
     set(APP_NAME cocos2dlua)
-    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/proj.android/app/jni/hellolua/main.cpp)
+    list(APPEND GAME_HEADER
+         ${FMOD_PATH}/FmodSound.hpp
+         ${FMOD_PATH}/android/inc/fmod.hpp
+         ${FMOD_PATH}/android/inc/fmod_common.h
+         )
+    list(APPEND GAME_SOURCE
+         ${RUNTIME_SRC_ROOT}/proj.android/app/jni/hellolua/main.cpp
+         ${FMOD_PATH}/FmodSound.cpp
+         )
 elseif(LINUX)
     list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/proj.linux/main.cpp)
 elseif(WINDOWS)
