@@ -26,6 +26,34 @@ cmake_minimum_required(VERSION 3.6)
 set(APP_NAME fmod_example)
 
 project(${APP_NAME})
+#if(ANDROID)
+#    set(lua_bindings_fmod_headers frameworks/fmod/FmodSound.hpp)
+#    set(lua_bindings_fmod_files frameworks/fmod/FmodSound.cpp)
+##    add_library(fmod_libs SHARED ${FMOD_PATH}/FmodSound.cpp)
+##    include_directories(fmod_libs ${FMOD_PATH}/android/inc)
+##    add_library(fmod-l  SHARED  IMPORTED)
+##    set_target_properties(fmod-l PROPERTIES IMPORTED_LOCATION
+##            ${FMOD_PATH}/android/lib/${ANDROID_ABI}/libfmod.so)
+##    find_library(
+##            log-lib
+##            log)
+##    target_link_libraries(
+##            fmod_libs
+##            fmod-l
+##            ${log-lib} )
+#
+#    set(lua_bindings_files
+#            ${lua_bindings_manual_files}
+#            ${lua_bindings_auto_files}
+#            ${lua_bindings_fmod_files}
+#            )
+#    set(lua_bindings_headers
+#            ${lua_bindings_manual_headers}
+#            ${lua_bindings_auto_headers}
+#            ${lua_bindings_fmod_headers}
+#            )
+#endif()
+
 
 set(RUNTIME_SRC_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/frameworks/runtime-src)
 set(COCOS2DX_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/frameworks/cocos2d-x)
@@ -56,10 +84,11 @@ endif()
 # record sources, headers
 set(GAME_HEADER ${RUNTIME_SRC_ROOT}/Classes/AppDelegate.h)
 set(GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/AppDelegate.cpp)
+
 # sources need to compile info, include dirs and source files
 include_directories(
+        ${FMOD_PATH}/
         ${RUNTIME_SRC_ROOT}/Classes
-        ${FMOD_PATH}/fmod
         ${COCOS2DX_ROOT_PATH}/cocos/scripting/lua-bindings/auto
         ${COCOS2DX_ROOT_PATH}/cocos/scripting/lua-bindings/manual
         ${COCOS2DX_ROOT_PATH}/cocos/scripting/lua-bindings/fmod
@@ -67,17 +96,15 @@ include_directories(
         ${COCOS2DX_ROOT_PATH}/external/lua/tolua
         ${COCOS2DX_ROOT_PATH}/tools/simulator/libsimulator/lib
 )
+
 if(ANDROID)
-    # change APP_NAME to the share library name for Android, it's value depend on AndroidManifest.xml
     set(APP_NAME cocos2dlua)
     list(APPEND GAME_HEADER
-         ${FMOD_PATH}/FmodSound.hpp
-         ${FMOD_PATH}/android/inc/fmod.hpp
-         ${FMOD_PATH}/android/inc/fmod_common.h
-         )
+            ${FMOD_PATH}/FmodSound.hpp
+            )
     list(APPEND GAME_SOURCE
-         ${RUNTIME_SRC_ROOT}/proj.android/app/jni/hellolua/main.cpp
          ${FMOD_PATH}/FmodSound.cpp
+         ${RUNTIME_SRC_ROOT}/proj.android/app/jni/hellolua/main.cpp
          )
 elseif(LINUX)
     list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/proj.linux/main.cpp)
@@ -152,7 +179,18 @@ else()
     target_link_libraries(${APP_NAME} -Wl,--whole-archive lua_android_spec -Wl,--no-whole-archive)
 endif()
 
-target_link_libraries(${APP_NAME} luacocos2d)
+
+#引入fmod.so文件
+include_directories(${FMOD_PATH}/android/inc)
+link_directories(${FMOD_PATH}/android/lib)
+add_library(lib_fmod SHARED IMPORTED)
+set_target_properties(
+        lib_fmod
+        PROPERTIES IMPORTED_LOCATION
+        ${FMOD_PATH}/android/lib/${ANDROID_ABI}/libfmod.so
+)
+
+target_link_libraries(${APP_NAME} luacocos2d lib_fmod)
 target_include_directories(${APP_NAME} PRIVATE ${RUNTIME_SRC_ROOT}/Classes)
 
 if(WINDOWS OR MACOSX)
