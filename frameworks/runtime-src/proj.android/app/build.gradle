@@ -254,7 +254,6 @@ android.applicationVariants.all { variant ->
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':libcocos2dx')
-    implementation files('libs/fmod.jar')
 }
