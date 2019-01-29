@@ -27,7 +27,7 @@ public:
 	void update(float dt);
 private:
 	bool init();
-
+    const char *getFullPathFileName(std::string filename);
 private:
     static FmodSound * _instance;
     float _music_volume;

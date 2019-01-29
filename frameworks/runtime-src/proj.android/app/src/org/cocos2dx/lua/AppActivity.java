@@ -45,6 +45,11 @@ public class AppActivity extends Cocos2dxActivity{
         // DO OTHER INITIALIZATION BELOW
         org.fmod.FMOD.init(this);
     }
+    protected void onDestroy() {
+        super.onDestroy();
+        org.fmod.FMOD.close();//用于关闭fmod功能
+    }
+
     static
     {
         System.loadLibrary("fmod");

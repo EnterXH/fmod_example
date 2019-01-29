@@ -26,6 +26,18 @@ bool FmodSound::init()
 	return true;
 }
 
+const char *FmodSound::getFullPathFileName(std::string filename)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    char *filePath = (char *)calloc(256, sizeof(char));
+    strcat(filePath, "file:///android_asset/");
+    strcat(filePath, filename.c_str());
+#else
+    const char * filePath = FileUtils::getInstance()->fullPathForFilename(filename).c_str();
+#endif
+    return filePath;
+}
+
 void FmodSound::preloadSound(std::string filename)
 {
 	CCLOG("preloadSound %s", filename.c_str());
@@ -33,10 +45,8 @@ void FmodSound::preloadSound(std::string filename)
 	{
         // Create sound instance from a file
 		FMOD::Sound * sound;
-		std::string path = FileUtils::getInstance()->fullPathForFilename(filename);
-
-		CCLOG("preloadSound fullPath %s", path.c_str());
-		system->createSound(path.c_str(), FMOD_DEFAULT, 0, &sound);
+		const char * path = getFullPathFileName(filename.c_str());
+		system->createSound(path, FMOD_DEFAULT, 0, &sound);
 		_sounds.insert(std::pair<std::string, FMOD::Sound*>(filename, sound));
 	}
 }
@@ -46,7 +56,6 @@ void FmodSound::playSound(std::string filename, bool loop, float volume)
 	preloadSound(filename);
 	if (_sounds.count(filename) <= 0)
 		return;
-	CCLOG("playSound %s", filename.c_str());
 	FMOD::Sound * sound = _sounds[filename];
 	if (loop)
 	{
@@ -60,7 +69,6 @@ void FmodSound::playSound(std::string filename, bool loop, float volume)
 	system->playSound(sound, 0, false, &channel);
 	channel->setVolume(volume);
 	_loop_sounds[filename] = channel;
-	CCLOG("playSound volume = %f", volume);
 }
 
 void FmodSound::stopSoundByName(std::string filename)
@@ -86,14 +94,14 @@ void FmodSound::playMusic(std::string filename, bool isloop)
 {
 	_music_channel->stop();
 	_music->release();
-
+    const char * path = getFullPathFileName(filename.c_str());
 	if (isloop)
 	{
-		system->createStream(filename.c_str(), FMOD_LOOP_NORMAL, 0, &_music);
+		system->createStream(path, FMOD_LOOP_NORMAL, 0, &_music);
 	}
 	else
 	{
-		system->createStream(filename.c_str(), FMOD_DEFAULT, 0, &_music);
+		system->createStream(path, FMOD_DEFAULT, 0, &_music);
 	}
 	_music_channel = 0;
 	system->playSound(_music, 0, false, &_music_channel);
