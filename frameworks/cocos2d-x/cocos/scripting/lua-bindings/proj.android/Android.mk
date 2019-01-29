@@ -49,6 +49,7 @@ LOCAL_SRC_FILES := ../manual/CCLuaBridge.cpp \
           ../auto/lua_cocos2dx_auto.cpp \
           ../auto/lua_cocos2dx_physics_auto.cpp \
           ../auto/lua_cocos2dx_experimental_auto.cpp \
+          ../fmod/lua_tools_fmodsound_auto.cpp \
           ../manual/cocos2d/lua_cocos2dx_deprecated.cpp \
           ../manual/cocos2d/lua_cocos2dx_experimental_manual.cpp \
           ../manual/cocos2d/lua_cocos2dx_manual.cpp \
@@ -152,6 +153,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../../external/lua/tolua \
                     $(LOCAL_PATH)/../../../navmesh \
                     $(LOCAL_PATH)/../../../../extensions \
                     $(LOCAL_PATH)/../auto \
+                    $(LOCAL_PATH)/../fmod \
                     $(LOCAL_PATH)/../manual \
                     $(LOCAL_PATH)/../manual/cocos2d \
                     $(LOCAL_PATH)/../manual/3d \
@@ -171,6 +173,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../../external/lua/tolua \
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../../../external/lua/tolua \
 						   $(LUA_INCLUDE_PATH) \
                            $(LOCAL_PATH)/../auto \
+                           $(LOCAL_PATH)/../fmod \
                            $(LOCAL_PATH)/../manual \
                            $(LOCAL_PATH)/../manual/cocos2d \
                            $(LOCAL_PATH)/../manual/3d \

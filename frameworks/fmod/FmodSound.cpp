@@ -28,11 +28,14 @@ bool FmodSound::init()
 
 void FmodSound::preloadSound(std::string filename)
 {
+	CCLOG("preloadSound %s", filename.c_str());
 	if (_sounds.count(filename) <= 0)
 	{
         // Create sound instance from a file
 		FMOD::Sound * sound;
 		std::string path = FileUtils::getInstance()->fullPathForFilename(filename);
+
+		CCLOG("preloadSound fullPath %s", path.c_str());
 		system->createSound(path.c_str(), FMOD_DEFAULT, 0, &sound);
 		_sounds.insert(std::pair<std::string, FMOD::Sound*>(filename, sound));
 	}
@@ -43,6 +46,7 @@ void FmodSound::playSound(std::string filename, bool loop, float volume)
 	preloadSound(filename);
 	if (_sounds.count(filename) <= 0)
 		return;
+	CCLOG("playSound %s", filename.c_str());
 	FMOD::Sound * sound = _sounds[filename];
 	if (loop)
 	{
@@ -56,6 +60,7 @@ void FmodSound::playSound(std::string filename, bool loop, float volume)
 	system->playSound(sound, 0, false, &channel);
 	channel->setVolume(volume);
 	_loop_sounds[filename] = channel;
+	CCLOG("playSound volume = %f", volume);
 }
 
 void FmodSound::stopSoundByName(std::string filename)

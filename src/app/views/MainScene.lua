@@ -12,7 +12,7 @@ function MainScene:onCreate()
         :move(display.cx, display.cy + 200)
         :addTo(self)
 
-    -- FmodSound:getInstance():playSound("res/sound/dabusi_special1.mp3", false, 1.0);
+    FmodSound:getInstance():playSound("res/sound/dabusi_special1.mp3", false, 1.0);
 end
 
 return MainScene
