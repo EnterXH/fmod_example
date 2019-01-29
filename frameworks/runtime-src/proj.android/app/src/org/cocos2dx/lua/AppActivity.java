@@ -42,8 +42,11 @@ public class AppActivity extends Cocos2dxActivity{
             // Don't need to finish it again since it's finished in super.onCreate .
             return;
         }
-
         // DO OTHER INITIALIZATION BELOW
-        
+        org.fmod.FMOD.init(this);
+    }
+    static
+    {
+        System.loadLibrary("fmod");
     }
 }
