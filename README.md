@@ -23,8 +23,8 @@
 * 3.在`C/C++`平级的列表中找到`链接器`，点击`常规`，在右侧`附加库目录`中添加刚才添加的`lib`目录（release和debug）都要加，在`常规`平级列表中找到`输入`，然后在`附加依赖项`中`debug`下添加`fmodL_vc.lib，fmodL64_vc.lib`，`release`下添加`fmod_vc.lib，fmod64_vc.lib`
 
 ### Android
-* 1.把`api/lowlevel/lib/`下的`.a` 和 `api/lowlevel/inc`下的代码添加项目中
-* 2.`fmod.jar`包添加到项目中`app/libs`下，没有目录则新建一个，在build.gradle中添加`implementation files('libs/fmod.jar')`,引用 `jar`包。
+* 1.把`api/lowlevel/lib/` 和 `api/lowlevel/inc`添加到项目中
+* 2.`fmod.jar`包添加到项目中`app/libs`下，没有目录则新建一个，在build.gradle中添加`implementation files('libs/fmod.jar')`引用 `jar`包。
 * 3.编辑`Android.mk`文件，在`LOCAL_PATH := $(call my-dir)`下边添加
 
 ~~~
@@ -49,9 +49,10 @@ include $(PREBUILT_SHARED_LIBRARY)
 LOCAL_STATIC_LIBRARIES += fmod
 LOCAL_STATIC_LIBRARIES += fmodL
 ~~~
+* 4.如果使用lua，还需要编辑lua_bindings下边的Android.mk
 
 #### 在lua中使用
-打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini 和 .py>导出c++ to lua
+打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 `<.ini 和 .py>`导出c++ to lua
 
 ###### 注意
 cocos tolua 需要使用cocos版本对应的android-ndk，对应关系查看cocos官网
