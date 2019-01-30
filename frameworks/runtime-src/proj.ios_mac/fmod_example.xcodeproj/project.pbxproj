@@ -60,10 +60,13 @@
 		F293B3D915EB7BE500256477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F293B3D815EB7BE500256477 /* Foundation.framework */; };
 		F293B3DB15EB7BE500256477 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F293B3DA15EB7BE500256477 /* CoreGraphics.framework */; };
 		F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F293BB7E15EB831F00256477 /* AppDelegate.cpp */; };
+		FAC0A290220194BC0023477B /* libfmod.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC0A28F220194BC0023477B /* libfmod.dylib */; };
+		FAC0A29722019EB00023477B /* libfmodL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC0A29622019EAF0023477B /* libfmodL.dylib */; };
+		FAC0A29922019F8F0023477B /* libfmod.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAC0A28F220194BC0023477B /* libfmod.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FAC0A29A22019F8F0023477B /* libfmodL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = FAC0A29622019EAF0023477B /* libfmodL.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FAE13B4A21F816EB00CADB96 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE13B4921F816EB00CADB96 /* Cocoa.framework */; };
 		FAE13B9121F81B7600CADB96 /* FmodSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE13B5C21F81B7600CADB96 /* FmodSound.cpp */; };
 		FAE13B9221F81B7600CADB96 /* FmodSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAE13B5C21F81B7600CADB96 /* FmodSound.cpp */; };
-		FAE13BEE21F81CAF00CADB96 /* libfmod.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE13BEC21F81CAF00CADB96 /* libfmod.dylib */; };
 		FAE13C3221F8399E00CADB96 /* libfmod_appletvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE13C2A21F8399E00CADB96 /* libfmod_appletvos.a */; };
 		FAE13C3521F8399E00CADB96 /* libfmodL_iphoneos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE13C2D21F8399E00CADB96 /* libfmodL_iphoneos.a */; };
 		FAE13C3621F8399E00CADB96 /* libfmodL_appletvos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE13C2E21F8399E00CADB96 /* libfmodL_appletvos.a */; };
@@ -175,6 +178,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FAC0A29822019F7E0023477B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FAC0A29922019F8F0023477B /* libfmod.dylib in CopyFiles */,
+				FAC0A29A22019F8F0023477B /* libfmodL.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		15A8A4031834BDA200142BE0 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = "../../cocos2d-x/build/cocos2d_libs.xcodeproj"; sourceTree = "<group>"; };
 		15A8A4871834C90E00142BE0 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
@@ -231,6 +248,8 @@
 		F293B3DA15EB7BE500256477 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F293BB7E15EB831F00256477 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		F293BB7F15EB831F00256477 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
+		FAC0A28F220194BC0023477B /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmod.dylib; sourceTree = "<group>"; };
+		FAC0A29622019EAF0023477B /* libfmodL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmodL.dylib; sourceTree = "<group>"; };
 		FAE13B4921F816EB00CADB96 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FAE13B4C21F81B7600CADB96 /* FmodSound.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FmodSound.hpp; sourceTree = "<group>"; };
 		FAE13B5C21F81B7600CADB96 /* FmodSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FmodSound.cpp; sourceTree = "<group>"; };
@@ -242,7 +261,6 @@
 		FAE13BE721F81CAF00CADB96 /* fmod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fmod.hpp; sourceTree = "<group>"; };
 		FAE13BE821F81CAF00CADB96 /* fmod_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod_common.h; sourceTree = "<group>"; };
 		FAE13BE921F81CAF00CADB96 /* fmod_dsp_effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod_dsp_effects.h; sourceTree = "<group>"; };
-		FAE13BEC21F81CAF00CADB96 /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libfmod.dylib; sourceTree = "<group>"; };
 		FAE13BF121F8237E00CADB96 /* fmod_output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod_output.h; sourceTree = "<group>"; };
 		FAE13BF221F8237E00CADB96 /* fmod_dsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod_dsp.h; sourceTree = "<group>"; };
 		FAE13BF321F8237E00CADB96 /* fmod_errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmod_errors.h; sourceTree = "<group>"; };
@@ -268,7 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE13BEE21F81CAF00CADB96 /* libfmod.dylib in Frameworks */,
+				FAC0A290220194BC0023477B /* libfmod.dylib in Frameworks */,
 				FAE13B4A21F816EB00CADB96 /* Cocoa.framework in Frameworks */,
 				ED545A8B1B68A24500C3958E /* libiconv.dylib in Frameworks */,
 				DA9E7D881AB1ABCC004B27C8 /* Security.framework in Frameworks */,
@@ -281,6 +299,7 @@
 				50D7C96C17EBBEDF005D0B91 /* OpenGL.framework in Frameworks */,
 				5023813717EBBCE400990C9B /* libz.dylib in Frameworks */,
 				5023813E17EBBCE400990C9B /* QuartzCore.framework in Frameworks */,
+				FAC0A29722019EB00023477B /* libfmodL.dylib in Frameworks */,
 				5023814017EBBCE400990C9B /* OpenAL.framework in Frameworks */,
 				5023814117EBBCE400990C9B /* AudioToolbox.framework in Frameworks */,
 				5023814417EBBCE400990C9B /* Foundation.framework in Frameworks */,
@@ -503,7 +522,8 @@
 		FAE13BEA21F81CAF00CADB96 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				FAE13BEC21F81CAF00CADB96 /* libfmod.dylib */,
+				FAC0A28F220194BC0023477B /* libfmod.dylib */,
+				FAC0A29622019EAF0023477B /* libfmodL.dylib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -558,6 +578,7 @@
 				5023813117EBBCE400990C9B /* Sources */,
 				5023813617EBBCE400990C9B /* Frameworks */,
 				5023814617EBBCE400990C9B /* Resources */,
+				FAC0A29822019F7E0023477B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -828,6 +849,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = ../../../runtime/mac;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;
@@ -853,6 +875,7 @@
 					10000,
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
+					"$(SRCROOT)/../../fmod/mac/lib/libfmod.dylib",
 				);
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/external/glfw3/include/mac $(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
@@ -866,6 +889,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -890,6 +914,7 @@
 					10000,
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
+					"$(SRCROOT)/../../fmod/mac/lib/libfmod.dylib",
 				);
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/external/glfw3/include/mac $(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
