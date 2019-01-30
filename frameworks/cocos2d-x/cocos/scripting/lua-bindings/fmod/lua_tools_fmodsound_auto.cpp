@@ -147,6 +147,56 @@ int lua_FmodSound_FmodSound_update(lua_State* tolua_S)
 
     return 0;
 }
+int lua_FmodSound_FmodSound_setSoundVolume(lua_State* tolua_S)
+{
+    int argc = 0;
+    FmodSound* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"FmodSound",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (FmodSound*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_FmodSound_FmodSound_setSoundVolume'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        double arg0;
+
+        ok &= luaval_to_number(tolua_S, 2,&arg0, "FmodSound:setSoundVolume");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_FmodSound_FmodSound_setSoundVolume'", nullptr);
+            return 0;
+        }
+        cobj->setSoundVolume(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "FmodSound:setSoundVolume",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_FmodSound_FmodSound_setSoundVolume'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_FmodSound_FmodSound_preloadSound(lua_State* tolua_S)
 {
     int argc = 0;
@@ -250,6 +300,100 @@ int lua_FmodSound_FmodSound_playMusic(lua_State* tolua_S)
 
     return 0;
 }
+int lua_FmodSound_FmodSound_resumeBackgroundMusic(lua_State* tolua_S)
+{
+    int argc = 0;
+    FmodSound* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"FmodSound",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (FmodSound*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_FmodSound_FmodSound_resumeBackgroundMusic'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_FmodSound_FmodSound_resumeBackgroundMusic'", nullptr);
+            return 0;
+        }
+        cobj->resumeBackgroundMusic();
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "FmodSound:resumeBackgroundMusic",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_FmodSound_FmodSound_resumeBackgroundMusic'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_FmodSound_FmodSound_resumeAllSound(lua_State* tolua_S)
+{
+    int argc = 0;
+    FmodSound* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"FmodSound",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (FmodSound*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_FmodSound_FmodSound_resumeAllSound'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_FmodSound_FmodSound_resumeAllSound'", nullptr);
+            return 0;
+        }
+        cobj->resumeAllSound();
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "FmodSound:resumeAllSound",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_FmodSound_FmodSound_resumeAllSound'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_FmodSound_FmodSound_playSound(lua_State* tolua_S)
 {
     int argc = 0;
@@ -306,6 +450,53 @@ int lua_FmodSound_FmodSound_playSound(lua_State* tolua_S)
 
     return 0;
 }
+int lua_FmodSound_FmodSound_pauseBackgroundMusic(lua_State* tolua_S)
+{
+    int argc = 0;
+    FmodSound* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"FmodSound",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (FmodSound*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_FmodSound_FmodSound_pauseBackgroundMusic'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_FmodSound_FmodSound_pauseBackgroundMusic'", nullptr);
+            return 0;
+        }
+        cobj->pauseBackgroundMusic();
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "FmodSound:pauseBackgroundMusic",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_FmodSound_FmodSound_pauseBackgroundMusic'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_FmodSound_FmodSound_stopSoundByName(lua_State* tolua_S)
 {
     int argc = 0;
@@ -356,7 +547,7 @@ int lua_FmodSound_FmodSound_stopSoundByName(lua_State* tolua_S)
 
     return 0;
 }
-int lua_FmodSound_FmodSound_setSoundVolume(lua_State* tolua_S)
+int lua_FmodSound_FmodSound_pauseAllSound(lua_State* tolua_S)
 {
     int argc = 0;
     FmodSound* cobj = nullptr;
@@ -376,32 +567,29 @@ int lua_FmodSound_FmodSound_setSoundVolume(lua_State* tolua_S)
 #if COCOS2D_DEBUG >= 1
     if (!cobj) 
     {
-        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_FmodSound_FmodSound_setSoundVolume'", nullptr);
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_FmodSound_FmodSound_pauseAllSound'", nullptr);
         return 0;
     }
 #endif
 
     argc = lua_gettop(tolua_S)-1;
-    if (argc == 1) 
+    if (argc == 0) 
     {
-        double arg0;
-
-        ok &= luaval_to_number(tolua_S, 2,&arg0, "FmodSound:setSoundVolume");
         if(!ok)
         {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_FmodSound_FmodSound_setSoundVolume'", nullptr);
+            tolua_error(tolua_S,"invalid arguments in function 'lua_FmodSound_FmodSound_pauseAllSound'", nullptr);
             return 0;
         }
-        cobj->setSoundVolume(arg0);
+        cobj->pauseAllSound();
         lua_settop(tolua_S, 1);
         return 1;
     }
-    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "FmodSound:setSoundVolume",argc, 1);
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "FmodSound:pauseAllSound",argc, 0);
     return 0;
 
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_FmodSound_FmodSound_setSoundVolume'.",&tolua_err);
+    tolua_error(tolua_S,"#ferror in function 'lua_FmodSound_FmodSound_pauseAllSound'.",&tolua_err);
 #endif
 
     return 0;
@@ -493,11 +681,15 @@ int lua_register_FmodSound_FmodSound(lua_State* tolua_S)
         tolua_function(tolua_S,"stopMusic",lua_FmodSound_FmodSound_stopMusic);
         tolua_function(tolua_S,"stopAllSound",lua_FmodSound_FmodSound_stopAllSound);
         tolua_function(tolua_S,"update",lua_FmodSound_FmodSound_update);
+        tolua_function(tolua_S,"setSoundVolume",lua_FmodSound_FmodSound_setSoundVolume);
         tolua_function(tolua_S,"preloadSound",lua_FmodSound_FmodSound_preloadSound);
         tolua_function(tolua_S,"playMusic",lua_FmodSound_FmodSound_playMusic);
+        tolua_function(tolua_S,"resumeBackgroundMusic",lua_FmodSound_FmodSound_resumeBackgroundMusic);
+        tolua_function(tolua_S,"resumeAllSound",lua_FmodSound_FmodSound_resumeAllSound);
         tolua_function(tolua_S,"playSound",lua_FmodSound_FmodSound_playSound);
+        tolua_function(tolua_S,"pauseBackgroundMusic",lua_FmodSound_FmodSound_pauseBackgroundMusic);
         tolua_function(tolua_S,"stopSoundByName",lua_FmodSound_FmodSound_stopSoundByName);
-        tolua_function(tolua_S,"setSoundVolume",lua_FmodSound_FmodSound_setSoundVolume);
+        tolua_function(tolua_S,"pauseAllSound",lua_FmodSound_FmodSound_pauseAllSound);
         tolua_function(tolua_S,"getInstance", lua_FmodSound_FmodSound_getInstance);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(FmodSound).name();

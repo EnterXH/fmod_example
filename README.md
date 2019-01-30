@@ -19,9 +19,36 @@
 * 2.右键点击工程，最下边找到`属性`，`属性配置`下找到`C/C++`，然后点击`常规`,在附加包含目录中添加刚才添加的`inc`下的代码的目录。（release和debug）都要加
 * 3.在`C/C++`平级的列表中找到`链接器`，点击`常规`，在右侧`附加库目录`中添加刚才添加的`lib`目录（release和debug）都要加，在`常规`平级列表中找到`输入`，然后在`附加依赖项`中`debug`下添加`fmodL_vc.lib，fmodL64_vc.lib`，`release`下添加`fmod_vc.lib，fmod64_vc.lib`
 
+### Android
+* 1.把`api/lowlevel/lib/`下的`.a` 和 `api/lowlevel/inc`下的代码添加项目中
+* 2.`fmod.jar`包添加到项目中`app/libs`下，没有目录则新建一个，在build.gradle中添加`implementation files('libs/fmod.jar')`,引用 `jar`包。
+* 3.编辑`Android.mk`文件，在`LOCAL_PATH := $(call my-dir)`下边添加
+
+~~~
+FMOD_ANDROID_DIR := ../../../../fmod/android
+FMOD_LIBRARY_PATH := $(FMOD_ANDROID_DIR)/lib/$(TARGET_ARCH_ABI)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := fmod
+LOCAL_SRC_FILES := $(FMOD_LIBRARY_PATH)/libfmod.so
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/$(FMOD_ANDROID_DIR)/inc
+include $(PREBUILT_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := fmodL
+LOCAL_SRC_FILES := $(FMOD_LIBRARY_PATH)/libfmodL.so
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/$(FMOD_ANDROID_DIR)/inc
+include $(PREBUILT_SHARED_LIBRARY)
+~~~
+在`include $(BUILD_SHARED_LIBRARY)`上边添加
+
+~~~
+LOCAL_STATIC_LIBRARIES += fmod
+LOCAL_STATIC_LIBRARIES += fmodL
+~~~
 
 #### 在lua中使用
-打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini and .py>导出c++ to lua
+打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 <.ini 和 .py>导出c++ to lua
 
 ###### 注意
 cocos tolua 需要使用cocos版本对应的android-ndk，对应关系查看cocos官网

@@ -25,6 +25,13 @@
         
 --------------------------------
 -- 
+-- @function [parent=#FmodSound] setSoundVolume 
+-- @param self
+-- @param #float volume
+-- @return FmodSound#FmodSound self (return value: FmodSound)
+        
+--------------------------------
+-- 
 -- @function [parent=#FmodSound] preloadSound 
 -- @param self
 -- @param #string filename
@@ -40,11 +47,29 @@
         
 --------------------------------
 -- 
+-- @function [parent=#FmodSound] resumeBackgroundMusic 
+-- @param self
+-- @return FmodSound#FmodSound self (return value: FmodSound)
+        
+--------------------------------
+-- 
+-- @function [parent=#FmodSound] resumeAllSound 
+-- @param self
+-- @return FmodSound#FmodSound self (return value: FmodSound)
+        
+--------------------------------
+-- 
 -- @function [parent=#FmodSound] playSound 
 -- @param self
 -- @param #string filename
 -- @param #bool loop
 -- @param #float volume
+-- @return FmodSound#FmodSound self (return value: FmodSound)
+        
+--------------------------------
+-- 
+-- @function [parent=#FmodSound] pauseBackgroundMusic 
+-- @param self
 -- @return FmodSound#FmodSound self (return value: FmodSound)
         
 --------------------------------
@@ -56,9 +81,8 @@
         
 --------------------------------
 -- 
--- @function [parent=#FmodSound] setSoundVolume 
+-- @function [parent=#FmodSound] pauseAllSound 
 -- @param self
--- @param #float volume
 -- @return FmodSound#FmodSound self (return value: FmodSound)
         
 --------------------------------

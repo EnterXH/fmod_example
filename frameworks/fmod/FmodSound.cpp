@@ -28,19 +28,19 @@ bool FmodSound::init()
 
 const char *FmodSound::getFullPathFileName(std::string filename)
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     char *filePath = (char *)calloc(256, sizeof(char));
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     strcat(filePath, "file:///android_asset/");
     strcat(filePath, filename.c_str());
+    
 #else
-    const char * filePath = FileUtils::getInstance()->fullPathForFilename(filename).c_str();
+    strcat(filePath, FileUtils::getInstance()->fullPathForFilename(filename).c_str());
 #endif
     return filePath;
 }
 
 void FmodSound::preloadSound(std::string filename)
 {
-	CCLOG("preloadSound %s", filename.c_str());
 	if (_sounds.count(filename) <= 0)
 	{
         // Create sound instance from a file
@@ -89,6 +89,22 @@ void FmodSound::stopAllSound()
 	_loop_sounds.clear();
 }
 
+void FmodSound::pauseAllSound()
+{
+    for (auto iter : _loop_sounds)
+    {
+        iter.second->setPaused(true);
+    }
+}
+
+void FmodSound::resumeAllSound()
+{
+    for (auto iter : _loop_sounds)
+    {
+        iter.second->setPaused(false);
+    }
+}
+
 // background music
 void FmodSound::playMusic(std::string filename, bool isloop)
 {
@@ -120,7 +136,18 @@ void FmodSound::setSoundVolume(float volume)
 	_music_channel->setVolume(volume);
 }
 
+void FmodSound::pauseBackgroundMusic()
+{
+    _music_channel->setPaused(true);
+}
+
+void FmodSound::resumeBackgroundMusic()
+{
+    _music_channel->setPaused(false);
+}
+
+// update
 void FmodSound::update(float dt)
 {
-	system->update();
+    system->update();
 }

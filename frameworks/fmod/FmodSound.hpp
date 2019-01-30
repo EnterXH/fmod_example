@@ -20,10 +20,14 @@ public:
 	void setSoundVolume(float volume);
 	void stopSoundByName(std::string filename);
 	void stopAllSound();
-	void playMusic(std::string filename, bool isloop);
+	void pauseAllSound();
+    void resumeAllSound();
+    void playMusic(std::string filename, bool isloop);
 	void stopMusic();
 	void preloadSound(std::string filename);
-
+    void pauseBackgroundMusic();
+    void resumeBackgroundMusic();
+    
 	void update(float dt);
 private:
 	bool init();

@@ -23,4 +23,8 @@ int register_all_FmodSound(lua_State* tolua_S);
 
 
 
+
+
+
+
 #endif // __FmodSound_h__
