@@ -8,7 +8,9 @@
 	首先下载对应的api
 ### macOS
 * 1.把`api/lowlevel/lib/`下的`libfmod.dylib` 和 `api/lowlevel/inc`下的代码添加项目中
-* 2.项目配置把`libfmod.dylib`所在的路径添加到`build settings`下的`Per-configuration Build Products Path`中
+* 2.项目配置把`libfmod.dylib`所在的路径添加到`build settings`下的`Library Search Paths`中，头文件的路径添加到`build settings`下的`Header Search Paths`中
+* 3.在`build settings`下的`Runpath Search Paths`设置`@runpath`的路径，示例项目中是`build settings`
+<p>@runpath参考地址 <a href="http://www.cnblogs.com/csuftzzk/p/mac_run_path.html">http://www.cnblogs.com/csuftzzk/p/mac_run_path.html</a></p> 
 
 ### IOS
 * 1.把`api/lowlevel/lib/`下的`.a` 和 `api/lowlevel/inc`下的代码添加项目中
