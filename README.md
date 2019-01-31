@@ -50,7 +50,26 @@ LOCAL_STATIC_LIBRARIES += fmod
 LOCAL_STATIC_LIBRARIES += fmodL
 ~~~
 * 4.如果使用lua，还需要编辑lua_bindings下边的Android.mk
+* 5.AppActivity中添加必要的函数调用，初始化、退出、load lib
 
+~~~
+public class AppActivity extends Cocos2dxActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.setEnableVirtualButton(false);
+        super.onCreate(savedInstanceState);
+        org.fmod.FMOD.init(this);
+    }
+    protected void onDestroy() {
+        super.onDestroy();
+        org.fmod.FMOD.close();//用于关闭fmod功能
+    }
+    static
+    {
+        System.loadLibrary("fmod");
+    }
+}
+~~~
 #### 在lua中使用
 打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 `<.ini 和 .py>`导出c++ to lua
 
