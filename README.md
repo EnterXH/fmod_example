@@ -3,7 +3,7 @@
 - cocos: cocos2d-x-3.17.1
 - <p>FMOD官网 <a href="https://www.fmod.com">https://www.fmod.com</a></p>
 - <p>FMOD下载地址 <a href="https://www.fmod.com/download">https://www.fmod.com/download</a></p>
-
+- <p>示例 <a href="git@github.com:EnterXH/fmod_example.git">git@github.com:EnterXH/fmod_example.git</a></p>
 ### 集成
 	首先下载对应的api
 ### macOS
@@ -27,10 +27,10 @@
 * 2.`fmod.jar`包添加到项目中`app/libs`下，没有目录则新建一个，在build.gradle中添加`implementation files('libs/fmod.jar')`引用 `jar`包。
 * 3.编辑`Android.mk`文件，在`LOCAL_PATH := $(call my-dir)`下边添加
 
-~~~
+```
 FMOD_ANDROID_DIR := ../../../../fmod/android
 FMOD_LIBRARY_PATH := $(FMOD_ANDROID_DIR)/lib/$(TARGET_ARCH_ABI)
-
+	
 include $(CLEAR_VARS)
 LOCAL_MODULE := fmod
 LOCAL_SRC_FILES := $(FMOD_LIBRARY_PATH)/libfmod.so
@@ -42,19 +42,20 @@ LOCAL_MODULE := fmodL
 LOCAL_SRC_FILES := $(FMOD_LIBRARY_PATH)/libfmodL.so
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/$(FMOD_ANDROID_DIR)/inc
 include $(PREBUILT_SHARED_LIBRARY)
-~~~
+```
 在`include $(BUILD_SHARED_LIBRARY)`上边添加
-
-~~~
+	
+```
 LOCAL_STATIC_LIBRARIES += fmod
 LOCAL_STATIC_LIBRARIES += fmodL
-~~~
+```
+
 * 4.如果使用lua，还需要编辑lua_bindings下边的Android.mk
 * 5.AppActivity中添加必要的函数调用，初始化、退出、load lib
 
-~~~
+```java
 public class AppActivity extends Cocos2dxActivity{
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.setEnableVirtualButton(false);
         super.onCreate(savedInstanceState);
@@ -69,7 +70,8 @@ public class AppActivity extends Cocos2dxActivity{
         System.loadLibrary("fmod");
     }
 }
-~~~
+```
+
 #### 在lua中使用
 打开 `frameworks/cocos2d-x/tools/tolua/` 仿着写一个导出文件 `<.ini 和 .py>`导出c++ to lua
 
@@ -101,15 +103,14 @@ channel->setMode(FMOD_DEFAULT);
 ###示例工程
 在 `frameworks/fmod`中的FmodSound类，简单实现了背景音乐和播放音效的基础方法
 
-~~~
-    void playSound(std::string filename, bool loop, float volume);
-	void setSoundVolume(float volume);
-	void stopSoundByName(std::string filename);
-	void stopAllSound();
-	void playMusic(std::string filename, bool isloop);
-	void stopMusic();
-	void preloadSound(std::string filename);
-~~~
-
+```
+void playSound(std::string filename, bool loop, float volume);
+void setSoundVolume(float volume);
+void stopSoundByName(std::string filename);
+void stopAllSound();
+void playMusic(std::string filename, bool isloop);
+void stopMusic();
+void preloadSound(std::string filename);
+```
 
 
